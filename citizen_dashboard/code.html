@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NagrikAI - Citizen Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-variant": "#dce2f3",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#001a42",
+                        "primary-container": "#1e3a8a",
+                        "surface": "#f9f9ff",
+                        "surface-dim": "#d3daea",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#e7eefe",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-background": "#151c27",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-primary-fixed": "#00164e",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "tertiary": "#00311f",
+                        "tertiary-fixed": "#6ffbbe",
+                        "outline-variant": "#c5c5d3",
+                        "on-tertiary-container": "#27c38a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#2170e4",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-fixed": "#dce1ff",
+                        "outline": "#757682",
+                        "surface-tint": "#4059aa",
+                        "error": "#ba1a1a",
+                        "primary": "#00236f",
+                        "surface-container-highest": "#dce2f3",
+                        "on-surface": "#151c27",
+                        "inverse-surface": "#2a313d",
+                        "on-primary-container": "#90a8ff",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-primary": "#b6c4ff",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-secondary-container": "#fefcff",
+                        "secondary": "#0058be",
+                        "on-surface-variant": "#444651",
+                        "tertiary-container": "#004a31"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "container-max": "1280px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .soft-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-sans antialiased overflow-hidden flex">
+<!-- SideNavBar (from JSON) -->
+<nav class="hidden md:flex flex-col p-md gap-sm bg-surface fixed left-0 top-0 h-full w-[280px] border-r border-outline-variant z-20">
+<!-- Header -->
+<div class="px-md py-lg border-b border-outline-variant mb-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" data-weight="fill">shield_person</span>
+</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-primary truncate">NagrikAI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Citizen Portal</p>
+</div>
+</div>
+<!-- Main Nav -->
+<div class="flex-1 overflow-y-auto flex flex-col gap-sm">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold rounded-lg duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+                Submit Grievance
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                My Complaints
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<!-- CTA & Footer -->
+<div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-sm">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-md text-label-md font-semibold hover:bg-opacity-90 transition-colors duration-200 flex items-center justify-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                New Grievance
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-h-screen md:ml-[280px]">
+<!-- TopAppBar (Modified for Dashboard context based on prompt) -->
+<header class="bg-surface border-b border-outline-variant h-16 flex items-center justify-between px-gutter sticky top-0 z-10 shrink-0">
+<!-- Mobile Menu Toggle (Visible only on mobile) -->
+<button class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-lg hover:bg-surface-container-low focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Page Title -->
+<h2 class="hidden md:block font-headline-md text-headline-md text-on-surface">Dashboard</h2>
+<h2 class="md:hidden font-headline-lg-mobile text-headline-lg-mobile text-on-surface ml-2">NagrikAI</h2>
+<!-- Right Actions -->
+<div class="flex items-center gap-md">
+<!-- Search -->
+<div class="relative hidden sm:block w-64">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-10 pr-3 py-2 border border-outline-variant rounded-lg bg-surface-lowest text-on-surface focus:outline-none focus:border-secondary-container focus:ring-1 focus:ring-secondary-container focus:ring-opacity-50 transition-colors font-body-md text-body-md" placeholder="Search complaints..." type="text"/>
+</div>
+<!-- Notifications -->
+<button class="relative p-2 text-on-surface-variant rounded-full hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<!-- Profile Dropdown -->
+<button class="flex items-center gap-2 p-1 rounded-full hover:bg-surface-container-low transition-colors focus:outline-none focus:ring-2 focus:ring-primary ml-2 border border-outline-variant">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A professional headshot of a confident civic user, bright natural lighting, clear background, modern light-mode aesthetic, corporate but approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLWRGUUW_I0pNKOnqMHsttw2bw5mWy4Z6NzpLzOrvpxI4QbjMRXf5oZ9sv7hrZaDcs0s-SnaTYU3qLvoRF9eX8lvaNH-mMUwHhmL-P3JThZ0RK2eahj0IaLWOuaqwk6gohhbbuH-5pKE0eVwIKTK_1ny5YTiGcVafnJEykstK1z-mp7PQliqQ3MzWgq2wZ2EWOR0lR4Ghdm5hMB2zrGey2aW-73cvcYADHUDzRe5pRLT9Tr9sjgrVe"/>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-gutter bg-background">
+<div class="max-w-container-max mx-auto space-y-xl">
+<!-- Welcome Section -->
+<section class="bg-surface border border-outline-variant rounded-xl p-lg md:p-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-lg soft-shadow">
+<!-- Decorative Background element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed-dim rounded-full blur-3xl opacity-20 -mr-20 -mt-20 pointer-events-none"></div>
+<div class="relative z-10 flex-1 max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm tracking-tight">Welcome to NagrikAI</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-xl">
+                            Report a civic issue and track its progress from submission to resolution. We connect you directly with the right authorities to ensure a better community for everyone.
+                        </p>
+<button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg shadow-sm transition-colors duration-200 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<span class="material-symbols-outlined font-bold text-[20px]">add</span>
+                            Report an Issue
+                        </button>
+</div>
+<!-- Illustration Placeholder -->
+<div class="relative z-10 hidden lg:block shrink-0">
+<img class="w-64 h-auto object-contain drop-shadow-sm" data-alt="A clean, minimalist vector illustration representing a smart city community, with abstract geometric buildings and a focus on connectivity. Soft blue and green color palette, light mode aesthetic, high contrast, professional and institutional feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3GChYmKs5GsHCleMKHJ26DxVqLkI4QK1ZjYN5uongQlHDDB8wx7ReYqxDoLxyn6GFSOOAmdkUsmD4bTRWxyAHyPIyEu0FkQDQTS9N46TAHHt1C-0npdJetdKff-HxT-WpHdvJ6M0IEET1qxu4gwWv0I23o9nSQBzQh-C2299gQC7DfbUNiAwNB807t1w-_jFOYd8F3UDKMrOj2qkJ70DIWHqUlolXqYqNd8L4R2QWY-J268dsHrge"/>
+</div>
+</section>
+<!-- My Complaints Section (Empty State) -->
+<section>
+<div class="flex items-center justify-between mb-md border-b border-outline-variant pb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">My Complaints</h3>
+<a class="font-label-md text-label-md text-primary hover:underline" href="#">View All</a>
+</div>
+<!-- Empty State Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center text-center min-h-[400px]">
+<div class="w-24 h-24 mb-6 text-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl opacity-50" style="font-size: 80px;">inbox</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">No complaints submitted yet.</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-md">
+                            Your dashboard is clear. When you report an issue in your community, you can track its status and updates right here.
+                        </p>
+<button class="bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low font-label-md text-label-md px-6 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 soft-shadow">
+                            Submit Your First Complaint
+                        </button>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

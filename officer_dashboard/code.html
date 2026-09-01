@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Department Officer Dashboard - NagrikAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e2e8f8",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface-variant": "#dce2f3",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#001a42",
+                    "primary-container": "#1e3a8a",
+                    "surface": "#f9f9ff",
+                    "surface-dim": "#d3daea",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ebf1ff",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-container": "#e7eefe",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-background": "#151c27",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-primary-fixed": "#00164e",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f0f3ff",
+                    "tertiary": "#00311f",
+                    "tertiary-fixed": "#6ffbbe",
+                    "outline-variant": "#c5c5d3",
+                    "on-tertiary-container": "#27c38a",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f9f9ff",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#2170e4",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#002113",
+                    "primary-fixed": "#dce1ff",
+                    "outline": "#757682",
+                    "surface-tint": "#4059aa",
+                    "error": "#ba1a1a",
+                    "primary": "#00236f",
+                    "surface-container-highest": "#dce2f3",
+                    "on-surface": "#151c27",
+                    "inverse-surface": "#2a313d",
+                    "on-primary-container": "#90a8ff",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-primary": "#b6c4ff",
+                    "on-primary-fixed-variant": "#264191",
+                    "on-secondary-container": "#fefcff",
+                    "secondary": "#0058be",
+                    "on-surface-variant": "#444651",
+                    "tertiary-container": "#004a31"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "container-max": "1280px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-[280px] bg-surface border-r border-outline-variant flex flex-col p-md gap-sm z-20">
+<div class="mb-lg px-sm">
+<h1 class="font-headline-md text-headline-md text-primary">NagrikAI</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Department Portal</p>
+</div>
+<nav class="flex-1 space-y-sm">
+<a class="flex items-center gap-sm px-sm py-xs bg-secondary-container text-on-secondary-container font-bold rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">queue</span>
+<span class="font-label-md text-label-md">Complaint Queue</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">priority_high</span>
+<span class="font-label-md text-label-md">Priority Issues</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-md text-label-md">Complaint Clusters</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">Map/Hotspots</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto space-y-sm">
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-xs text-on-surface-variant hover:bg-surface-container-low rounded-lg duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[280px] flex-1 flex flex-col min-h-screen">
+<!-- Top Bar -->
+<header class="h-16 bg-surface border-b border-outline-variant flex items-center justify-between px-gutter sticky top-0 z-10">
+<div class="font-headline-md text-headline-md text-on-surface">
+                Department of Public Works
+            </div>
+<div class="flex items-center gap-lg">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-[36px] pr-sm py-xs border border-outline-variant rounded-lg bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 font-body-md text-body-md text-on-surface outline-none w-64" placeholder="Search..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-xl space-y-xl max-w-container-max mx-auto w-full">
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Complaint Queue - Empty State -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col h-64 shadow-sm hover:shadow-md transition-shadow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Complaint Queue</h2>
+<div class="flex-1 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-sm">inbox</span>
+<p class="font-body-md text-body-md text-on-surface-variant">No complaints assigned yet.</p>
+</div>
+</section>
+<!-- Priority Issues - Empty State -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col h-64 shadow-sm hover:shadow-md transition-shadow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Priority Issues</h2>
+<div class="flex-1 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-sm">assignment_turned_in</span>
+<p class="font-body-md text-body-md text-on-surface-variant">No priority complaints.</p>
+</div>
+</section>
+<!-- Recent Activity - Empty State -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col h-64 shadow-sm hover:shadow-md transition-shadow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Recent Activity</h2>
+<div class="flex-1 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-sm">history</span>
+<p class="font-body-md text-body-md text-on-surface-variant">No recent activity.</p>
+</div>
+</section>
+<!-- Complaint Hotspots - Large Map Placeholder -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg flex flex-col lg:col-span-3 min-h-[400px] shadow-sm hover:shadow-md transition-shadow">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-md">Complaint Hotspots</h2>
+<div class="flex-1 bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #757682 25%, transparent 25%, transparent 75%, #757682 75%, #757682), repeating-linear-gradient(45deg, #757682 25%, transparent 25%, transparent 75%, #757682 75%, #757682); background-position: 0 0, 10px 10px; background-size: 20px 20px;"></div>
+<div class="z-10 flex flex-col items-center text-center bg-surface-container-lowest/80 p-md rounded-lg backdrop-blur-sm border border-outline-variant">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-sm">location_on</span>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Map visualization will appear here</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Complaint Detail - NagrikAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e2e8f8",
+                      "on-secondary-fixed-variant": "#004395",
+                      "surface-variant": "#dce2f3",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#001a42",
+                      "primary-container": "#1e3a8a",
+                      "surface": "#f9f9ff",
+                      "surface-dim": "#d3daea",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ebf1ff",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "surface-container": "#e7eefe",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "on-background": "#151c27",
+                      "primary-fixed-dim": "#b6c4ff",
+                      "on-primary-fixed": "#00164e",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f0f3ff",
+                      "tertiary": "#00311f",
+                      "tertiary-fixed": "#6ffbbe",
+                      "outline-variant": "#c5c5d3",
+                      "on-tertiary-container": "#27c38a",
+                      "surface-container-lowest": "#ffffff",
+                      "background": "#f9f9ff",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#2170e4",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#002113",
+                      "primary-fixed": "#dce1ff",
+                      "outline": "#757682",
+                      "surface-tint": "#4059aa",
+                      "error": "#ba1a1a",
+                      "primary": "#00236f",
+                      "surface-container-highest": "#dce2f3",
+                      "on-surface": "#151c27",
+                      "inverse-surface": "#2a313d",
+                      "on-primary-container": "#90a8ff",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "secondary-fixed": "#d8e2ff",
+                      "surface-bright": "#f9f9ff",
+                      "inverse-primary": "#b6c4ff",
+                      "on-primary-fixed-variant": "#264191",
+                      "on-secondary-container": "#fefcff",
+                      "secondary": "#0058be",
+                      "on-surface-variant": "#444651",
+                      "tertiary-container": "#004a31"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "sm": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "base": "4px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "xl": "40px",
+                      "container-max": "1280px",
+                      "xs": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row">
+<!-- SideNavBar -->
+<nav class="bg-surface text-primary font-label-md text-label-md border-r border-outline-variant fixed left-0 top-0 h-full w-[280px] flex flex-col p-md gap-sm hidden md:flex z-50">
+<div class="mb-xl">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">NagrikAI</h1>
+<p class="text-on-surface-variant mt-sm">Citizen Portal</p>
+</div>
+<div class="flex-grow flex flex-col gap-sm">
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+                Submit Grievance
+            </a>
+<a class="bg-secondary-container text-on-secondary-container font-bold rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                My Complaints
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<button class="bg-primary-container text-on-primary w-full py-md rounded-lg font-label-md mt-auto hover:brightness-90 transition-all focus:ring-2 focus:ring-primary focus:ring-offset-2">
+            New Grievance
+        </button>
+<div class="mt-lg pt-lg border-t border-outline-variant flex flex-col gap-sm">
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-container-low rounded-lg p-sm flex items-center gap-md transition-all duration-200 ease-in-out cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- TopNavBar (Mobile only) -->
+<header class="bg-surface border-b border-outline-variant w-full h-16 flex justify-between items-center px-gutter md:hidden fixed top-0 z-50">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">NagrikAI</h1>
+<button class="material-symbols-outlined text-primary cursor-pointer active:scale-95">menu</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-[280px] pt-16 md:pt-0 p-margin-mobile md:p-gutter max-w-container-max mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-md">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="text-on-surface-variant font-label-md">Complaint ID: #CMP-2024-8902</span>
+<span class="bg-surface-container-highest text-on-surface font-label-sm px-sm py-[2px] rounded-full inline-block">Draft</span>
+</div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-xs">Pothole on Main Street causing traffic hazards</h2>
+<p class="text-on-surface-variant font-body-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span> Downtown District, Sector 4
+                </p>
+</div>
+<div class="flex flex-wrap gap-sm">
+<button class="bg-surface text-on-surface border border-outline-variant px-md py-sm rounded-lg font-label-md hover:bg-surface-container-low transition-colors shadow-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span> Accept
+                </button>
+<button class="bg-surface text-on-surface border border-outline-variant px-md py-sm rounded-lg font-label-md hover:bg-surface-container-low transition-colors shadow-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">person_add</span> Assign
+                </button>
+<button class="bg-secondary-container text-on-secondary-container border border-secondary-container px-md py-sm rounded-lg font-label-md hover:brightness-95 transition-colors shadow-sm focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span> Mark In Progress
+                </button>
+<button class="bg-primary-container text-on-primary px-md py-sm rounded-lg font-label-md hover:brightness-90 transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Resolve
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mb-xl">
+<!-- Main Info & Evidence (Left Column) -->
+<div class="lg:col-span-2 flex flex-col gap-lg">
+<!-- Description Card -->
+<section class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="text-headline-md font-headline-md text-on-surface border-b border-outline-variant pb-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined">description</span> Description
+                    </h3>
+<p class="text-body-md text-on-surface-variant whitespace-pre-line">
+                        There is a massive pothole that has developed over the last week on Main Street, just past the intersection with 5th Avenue. It spans almost an entire lane and is extremely deep.
+
+                        Several cars have hit it hard, and it's becoming a major traffic hazard, especially during rush hour. Immediate attention is requested before an accident occurs or serious vehicle damage is sustained.
+                    </p>
+<div class="mt-md flex gap-lg text-label-md text-on-surface-variant bg-surface-container-lowest p-md rounded-lg border border-outline-variant">
+<div>
+<span class="block text-label-sm text-outline mb-xs">Submitted On</span>
+                            Oct 24, 2024, 09:15 AM
+                        </div>
+<div>
+<span class="block text-label-sm text-outline mb-xs">Reporter Contact</span>
+                            Not provided (Anonymous)
+                        </div>
+</div>
+</section>
+<!-- Evidence Card -->
+<section class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm">
+<h3 class="text-headline-md font-headline-md text-on-surface border-b border-outline-variant pb-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined">perm_media</span> Evidence
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="relative group cursor-pointer border border-outline-variant rounded-lg overflow-hidden h-48 bg-surface-container-low flex items-center justify-center">
+<img class="object-cover w-full h-full" data-alt="A close up shot of a large, jagged pothole in the middle of an asphalt city street. The lighting is harsh daylight, casting sharp shadows inside the hole. The aesthetic is gritty and realistic urban decay. The overall tone is problematic and urgently needing repair." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnhg7qA9K06trpmPh7Lr3Zos7b2ZB3f34pqNEo13odVxl3XQ7demL5FmcCExH5-auzNLiDz-rvFL30gztETdXWihLY1XOTxZJ0RUila7xtOQUycpQdnqlVqF0-RMlhqDIWSLCvXybEO4Di-UdI2JRBqOy-vv9iQ89synGsokizNAomUI8yLxuLG78u4nOnVyX7hl8A9cBTQNMsgZMS1g8W20Rpb5lxAYjQAqMXDxuXUzi65GZaABdY"/>
+<div class="absolute inset-0 bg-on-background bg-opacity-0 group-hover:bg-opacity-20 transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary opacity-0 group-hover:opacity-100 drop-shadow-md">zoom_in</span>
+</div>
+</div>
+<div class="relative group cursor-pointer border border-outline-variant rounded-lg overflow-hidden h-48 bg-surface-container-low flex items-center justify-center flex-col text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px] mb-sm">videocam</span>
+<span class="font-label-md">No video provided</span>
+</div>
+</div>
+</section>
+</div>
+<!-- AI Analysis & Timeline (Right Column) -->
+<div class="flex flex-col gap-lg">
+<!-- AI Analysis Card (Glassmorphism inspired, subtle) -->
+<section class="bg-surface-container border border-primary-fixed-dim rounded-xl p-lg shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed-dim opacity-20 blur-2xl rounded-full -mr-10 -mt-10"></div>
+<h3 class="text-headline-md font-headline-md text-primary border-b border-primary-fixed-dim pb-sm mb-md flex items-center gap-sm relative z-10">
+<span class="material-symbols-outlined">smart_toy</span> AI Analysis
+                    </h3>
+<div class="flex flex-col gap-md relative z-10">
+<div class="bg-surface p-md rounded-lg border border-outline-variant flex items-center justify-center min-h-[120px] text-center">
+<p class="text-on-surface-variant font-label-md flex flex-col items-center gap-sm">
+<span class="material-symbols-outlined animate-pulse text-outline">hourglass_empty</span>
+                                 AI analysis will appear here.
+                             </p>
+</div>
+<!-- Empty states for analysis categories -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-surface p-sm rounded-lg border border-outline-variant">
+<span class="block text-label-sm text-outline mb-xs">Category</span>
+<span class="text-label-md text-on-surface-variant italic">Pending...</span>
+</div>
+<div class="bg-surface p-sm rounded-lg border border-outline-variant">
+<span class="block text-label-sm text-outline mb-xs">Department</span>
+<span class="text-label-md text-on-surface-variant italic">Pending...</span>
+</div>
+<div class="bg-surface p-sm rounded-lg border border-outline-variant">
+<span class="block text-label-sm text-outline mb-xs">Priority</span>
+<span class="text-label-md text-on-surface-variant italic">Pending...</span>
+</div>
+<div class="bg-surface p-sm rounded-lg border border-outline-variant">
+<span class="block text-label-sm text-outline mb-xs">Duplicate Check</span>
+<span class="text-label-md text-on-surface-variant italic">Pending...</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Card -->
+<section class="bg-surface border border-outline-variant rounded-xl p-lg shadow-sm flex-grow">
+<h3 class="text-headline-md font-headline-md text-on-surface border-b border-outline-variant pb-sm mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined">timeline</span> Timeline
+                    </h3>
+<div class="relative border-l-2 border-surface-container-high ml-md py-sm">
+<!-- Timeline Item 1 -->
+<div class="mb-lg relative pl-lg">
+<div class="absolute w-3 h-3 bg-primary-container rounded-full -left-[7px] top-[6px] border-2 border-surface"></div>
+<p class="font-label-md text-on-surface">Complaint Submitted</p>
+<p class="font-label-sm text-outline mt-xs">Oct 24, 2024 - 09:15 AM</p>
+<p class="font-body-md text-on-surface-variant mt-sm text-sm">Citizen filed the report via mobile portal.</p>
+</div>
+<!-- Timeline Empty State for next step -->
+<div class="relative pl-lg">
+<div class="absolute w-3 h-3 bg-surface-container-high rounded-full -left-[7px] top-[6px] border-2 border-surface"></div>
+<p class="font-label-md text-outline italic">Awaiting Department Action</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>
