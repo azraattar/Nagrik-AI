@@ -16,13 +16,13 @@ export default function Sidebar({ role = 'citizen', activePage, navigateTo }) {
                 ];
             case 'admin':
                 return [
-                    { id: 'admin_dashboard', label: 'Overview', icon: 'dashboard' },
-                    { id: 'admin_complaints', label: 'Complaints', icon: 'report' },
-                    { id: 'departments', label: 'Departments', icon: 'corporate_fare' },
-                    { id: 'users', label: 'Users', icon: 'group' },
-                    { id: 'ai_analytics', label: 'AI Analytics', icon: 'psychology' },
-                    { id: 'admin_hotspots', label: 'Hotspots', icon: 'location_on' },
-                    { id: 'admin_reports', label: 'Reports', icon: 'summarize' },
+                    { id: '/admin', label: 'Overview', icon: 'dashboard' },
+                    { id: '/admin/complaints', label: 'Complaints', icon: 'report' },
+                    { id: '/admin/departments', label: 'Departments', icon: 'corporate_fare' },
+                    { id: '/admin/users', label: 'Users', icon: 'group' },
+                    { id: '/admin/ai-analytics', label: 'AI Analytics', icon: 'psychology' },
+                    { id: '/admin/hotspots', label: 'Hotspots', icon: 'location_on' },
+                    { id: '/admin/reports', label: 'Reports', icon: 'summarize' },
                 ];
             case 'citizen':
             default:
@@ -30,13 +30,27 @@ export default function Sidebar({ role = 'citizen', activePage, navigateTo }) {
                     { id: 'citizen_dashboard', label: 'Dashboard', icon: 'dashboard' },
                     { id: 'submit_complaint', label: 'Submit Grievance', icon: 'add_box' },
                     { id: 'my_complaints', label: 'My Complaints', icon: 'list_alt' },
-                    { id: 'analytics', label: 'Analytics', icon: 'analytics' },
-                    { id: 'settings', label: 'Settings', icon: 'settings' },
                 ];
         }
     };
 
     const navItems = getNavItems();
+
+    const checkIsActive = (item) => {
+        if (!activePage) return false;
+        if (activePage === item.id) return true;
+        const normActive = activePage.toLowerCase().replace(/\/$/, '');
+        const normItem = item.id.toLowerCase().replace(/\/$/, '');
+        if (normActive === normItem) return true;
+        if (normItem === '/admin' && (normActive === '/admin/overview' || normActive === 'admin_dashboard' || normActive === '/admin')) return true;
+        if (normItem === '/admin/complaints' && normActive === 'admin_complaints') return true;
+        if (normItem === '/admin/departments' && normActive === 'departments') return true;
+        if (normItem === '/admin/users' && normActive === 'users') return true;
+        if (normItem === '/admin/ai-analytics' && (normActive === 'ai_analytics' || normActive === '/admin/ai_analytics')) return true;
+        if (normItem === '/admin/hotspots' && (normActive === 'admin_hotspots' || normActive === '/admin/admin_hotspots')) return true;
+        if (normItem === '/admin/reports' && (normActive === 'admin_reports' || normActive === '/admin/admin_reports')) return true;
+        return false;
+    };
 
     const getPortalInfo = () => {
         switch (role) {
@@ -88,7 +102,7 @@ export default function Sidebar({ role = 'citizen', activePage, navigateTo }) {
             {/* Navigation Links */}
             <div className="flex-1 overflow-y-auto flex flex-col gap-xs">
                 {navItems.map((item) => {
-                    const isActive = activePage === item.id;
+                    const isActive = checkIsActive(item);
                     return (
                         <button
                             key={item.id}
@@ -115,15 +129,20 @@ export default function Sidebar({ role = 'citizen', activePage, navigateTo }) {
                 {role === 'citizen' && (
                     <button
                         onClick={() => navigateTo('help')}
-                        className="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low rounded-lg duration-200 ease-in-out w-full text-left"
+                        className={`flex items-center gap-3 px-4 py-3 font-label-md text-label-md rounded-lg duration-200 ease-in-out w-full text-left transition-all active:scale-95 ${activePage === 'help'
+                                ? 'bg-secondary-container text-on-secondary-container font-bold shadow-xs'
+                                : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+                            }`}
                     >
-                        <span className="material-symbols-outlined">help</span>
+                        <span className={`material-symbols-outlined ${activePage === 'help' ? 'icon-fill' : ''}`}>
+                            help
+                        </span>
                         Help
                     </button>
                 )}
                 <button
                     onClick={() => navigateTo('login')}
-                    className="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container rounded-lg duration-200 ease-in-out w-full text-left font-label-md text-label-md"
+                    className="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container rounded-lg duration-200 ease-in-out w-full text-left font-label-md text-label-md transition-all active:scale-95"
                 >
                     <span className="material-symbols-outlined">logout</span>
                     Logout / Switch Role

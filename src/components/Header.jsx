@@ -124,11 +124,23 @@ export default function Header({ currentRole, activePage, navigateTo, user }) {
                                         <p className="text-xs text-on-surface-variant">{user.email || "citizen@nagrik.ai"}</p>
                                     </div>
                                     <button
-                                        onClick={() => { navigateTo('citizen_dashboard'); setProfileOpen(false); }}
+                                        onClick={() => {
+                                            if (user?.role === 'admin') navigateTo('/admin');
+                                            else if (user?.role === 'officer') navigateTo('/officer_dashboard');
+                                            else navigateTo('/dashboard');
+                                            setProfileOpen(false);
+                                        }}
                                         className="w-full text-left px-sm py-xs text-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors flex items-center gap-2"
                                     >
                                         <span className="material-symbols-outlined text-base">dashboard</span>
                                         Dashboard
+                                    </button>
+                                    <button
+                                        onClick={() => { navigateTo('help'); setProfileOpen(false); }}
+                                        className="w-full text-left px-sm py-xs text-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg transition-colors flex items-center gap-2"
+                                    >
+                                        <span className="material-symbols-outlined text-base">help</span>
+                                        Help &amp; Support
                                     </button>
                                     <button
                                         onClick={() => { navigateTo('login'); setProfileOpen(false); }}
@@ -186,6 +198,12 @@ export default function Header({ currentRole, activePage, navigateTo, user }) {
                             className="text-left py-sm px-md rounded-lg font-label-md text-on-surface hover:bg-surface-container-low"
                         >
                             Submit Grievance
+                        </button>
+                        <button
+                            onClick={() => { navigateTo('help'); setMobileMenuOpen(false); }}
+                            className="text-left py-sm px-md rounded-lg font-label-md text-on-surface hover:bg-surface-container-low"
+                        >
+                            Help &amp; Support
                         </button>
                         <button
                             onClick={() => { navigateTo('officer_dashboard'); setMobileMenuOpen(false); }}
